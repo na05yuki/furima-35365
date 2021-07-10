@@ -37,12 +37,12 @@
 - belongs_to :user
 - has_one :purchase_management
 
-##  purchase_managementテーブル
+##  purchase_managementsテーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | item                | references | null: false, foreign_key: true |
-| shopping_address    | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -50,7 +50,7 @@
 - belongs_to :item
 - has_one :shopping_address
 
-##  shopping_addressテーブル
+##  shopping_addressesテーブル
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
