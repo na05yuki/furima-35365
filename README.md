@@ -16,6 +16,7 @@
 ### Association
 
 - has_many :items
+- has_many :purchase_managements
 
 ## items テーブル
 
@@ -26,40 +27,41 @@
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| shipping_area_id   | integer    | null: false                    |
+| prefectures_id     | integer    | null: false                    |
 | days_to_ship_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one :purchase_management
-- has_one :shopping_address
 
 ##  purchase_managementテーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| item_id             | references | null: false, foreign_key: true |
-| shopping_address_id | references | null: false, foreign_key: true |
+| item                | references | null: false, foreign_key: true |
+| shopping_address    | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
+- has_one :shopping_address
 
 ##  shopping_addressテーブル
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
 | zip_code               | string     | null: false                    |
-| prefectures            | string     | null: false                    |
+| prefectures_id         | integer    | null: false                    |
 | city                   | string     | null: false                    |
 | address                | string     | null: false                    |
 | building_name          | string     |                                |
 | phone_number           | string     | null: false                    |
-| purchase_management_id | references | null: false, foreign_key: true |
+| purchase_management    | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :items
+- belongs_to :purchase_management
