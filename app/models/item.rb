@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :status
   belongs_to :delivery_charge
-  belongs_to :prefectures
+  belongs_to :prefecture
   belongs_to :days_to_ship
 
   validates :name, :explanation, :price, presence: true
@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :status_id
     validates :delivery_charge_id
-    validates :prefectures_id
+    validates :prefecture_id
     validates :days_to_ship_id
   end
 
