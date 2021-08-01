@@ -9,14 +9,17 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, :explanation, :price, presence: true
+  with_options presence: true do
+    validates :name
+    validates :explanation
+    validates :price
 
-  with_options numericality: { other_than: 1 , message: "can't be blank"} do
-    validates :category_id
-    validates :status_id
-    validates :delivery_charge_id
-    validates :prefecture_id
-    validates :days_to_ship_id
+    with_options numericality: { other_than: 1 , message: "can't be blank"} do
+      validates :category_id
+      validates :status_id
+      validates :delivery_charge_id
+      validates :prefecture_id
+      validates :days_to_ship_id
+    end
   end
-
 end
