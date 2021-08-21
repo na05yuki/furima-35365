@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    item = FactoryBot.build(:item)
-    user = FactoryBot.build(:user)
+    item = FactoryBot.create(:item)
+    user = FactoryBot.create(:user)
     @order_address = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id)
     sleep 0.1  # エラーを防ぐため記述
   end
@@ -11,8 +11,6 @@ RSpec.describe OrderAddress, type: :model do
   describe '商品購入機能' do
     context '商品購入が上手くいく時' do
       it '全ての値(building_name以外)が存在すれば購入できる' do
-        @order_address.user_id = 1
-        @order_address.item_id = 2
         expect(@order_address).to be_valid
       end
     end
