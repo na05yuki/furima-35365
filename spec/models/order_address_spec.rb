@@ -5,7 +5,7 @@ RSpec.describe OrderAddress, type: :model do
     item = FactoryBot.build(:item)
     user = FactoryBot.build(:user)
     @order_address = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id)
-    sleep 0.1  #エラーを防ぐため記述
+    sleep 0.1  # エラーを防ぐため記述
   end
 
   describe '商品購入機能' do
