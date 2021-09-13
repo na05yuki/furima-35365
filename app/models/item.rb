@@ -16,10 +16,10 @@ class Item < ApplicationRecord
     validates :explanation
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
-                              message: 'Price is out of setting range' },
-              format: { with: /\A[0-9]+\z/, message: 'Price is invalid. Input half-width characters' }
+                              message: 'を設定可能な範囲の金額で入力してください' },
+              format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
 
-    with_options numericality: { other_than: 1, message: "can't be blank" } do
+    with_options numericality: { other_than: 1, message: "を選択してください" } do
       validates :category_id
       validates :status_id
       validates :delivery_charge_id

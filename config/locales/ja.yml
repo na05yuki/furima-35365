@@ -8,3 +8,15 @@ ja:
         family_name_kana: 苗字フリガナ
         first_name_kana: 氏名フリガナ
         birthday: 生年月日
+      item:
+        image: 商品画像
+        name: 商品名
+        explanation: 商品説明
+        price: 販売価格
+        category_id: カテゴリー
+        status_id: 商品の状態 
+        delivery_charge_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        days_to_ship_id: 発送までの日数 
+
+        
