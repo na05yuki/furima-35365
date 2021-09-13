@@ -11,12 +11,12 @@ class Item < ApplicationRecord
   has_one :purchase_management
 
   with_options presence: true do
-    validates :image
+    validates :image 
     validates :name
     validates :explanation
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
-                              message: 'を設定可能な範囲の金額で入力してください' },
+                              message: 'を設定可能な金額で入力してください' },
               format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
 
     with_options numericality: { other_than: 1, message: "を選択してください" } do
