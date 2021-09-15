@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   has_one :purchase_management
 
   with_options presence: true do
-    validates :image 
+    validates :image
     validates :name
     validates :explanation
     validates :price,
@@ -19,7 +19,7 @@ class Item < ApplicationRecord
                               message: 'を設定可能な金額で入力してください' },
               format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
 
-    with_options numericality: { other_than: 1, message: "を選択してください" } do
+    with_options numericality: { other_than: 1, message: 'を選択してください' } do
       validates :category_id
       validates :status_id
       validates :delivery_charge_id
