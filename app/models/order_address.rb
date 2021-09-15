@@ -4,11 +4,11 @@ class OrderAddress
                 :purchase_management_id, :token
 
   with_options presence: true do
-    validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフン(-)を含め入力してください' }
+    validates :prefecture_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :city
     validates :address
-    validates :phone_number, format: { with: /\A\d{10}\z|\A\d{11}\z/, message: 'is invalid.' }
+    validates :phone_number, format: { with: /\A\d{10}\z|\A\d{11}\z/, message: 'を11桁以内の数字で入力してください' }
     validates :token
     validates :user_id
     validates :item_id
